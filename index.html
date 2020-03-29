@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Alpine Todo</title>
+	<meta charset="utf-8" />
+	
+	<!-- CSS Imports -->
+	<!-- Bootstrap, Fontawesome -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+	<!-- Add height to the default card -->
+	<style type="text/css">
+	.min-vh-50 {
+		min-height: 50vh !important;
+	}
+	</style>
+</head>
+
+<body class="bg-dark" x-data="todo_app()">
+	<div class="container">
+		<div class="card min-vh-50">
+			<div class="card-header">
+				<h1>Todo List</h1>
+			</div>
+
+
+			<!-- Display all todo tasks -->
+			<div class="card-body">
+				<ul>
+					<template x-for="(task, index) in todo_list" :key="task">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" :id="index">
+							<label class="custom-control-label" :for="index">
+								<h5 x-text="task"></h5>
+							</label>
+						</div>
+					</template>
+				</ul>
+			</div>
+
+
+			<!-- Add New todo task -->
+			<div class="card-footer">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Add Item" x-model="new_todo" x-on:keydown.enter="add_todo_to_list">
+					<div class="input-group-append">
+						<button class="btn btn-success" @click="add_todo_to_list">
+							<i class="fas fa-plus"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- Import Alpinejs -->
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+	<!-- Setup Todo App -->
+	<script type="text/javascript">
+	function todo_app() {
+		return {
+			todo_list: [],
+			new_todo: "",
+			add_todo_to_list() {
+				this.todo_list.push(this.new_todo);
+				this.new_todo = "";
+			}
+		}
+	}
+	</script>
+</body>
+
+</html>
