@@ -5,8 +5,7 @@
 https://hoppi164.github.io/alpine-todo/index.html
 
 
-![Sample App](https://hoppi164.github.io/images/todo_list)
-
+![Sample App](/todo_list.png)
 
 
 
