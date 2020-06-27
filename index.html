@@ -4,7 +4,6 @@
 <head>
 	<title>Alpine Todo</title>
 	<meta charset="utf-8" />
-
 	<!-- To make mobile friendly -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- CSS Imports -->
@@ -14,9 +13,9 @@
 
 	<!-- Add height to the default card -->
 	<style type="text/css">
-	.min-vh-50 {
-		min-height: 50vh !important;
-	}
+		.min-vh-50 {
+			min-height: 50vh !important;
+		}
 	</style>
 </head>
 
@@ -61,17 +60,16 @@
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 	<!-- Setup Todo App -->
 	<script type="text/javascript">
-	function todo_app() {
-		return {
-			todo_list: [],
-			new_todo: "",
-			add_todo_to_list() {
-				this.todo_list.push(this.new_todo);
-				this.new_todo = "";
+		function todo_app() {
+			return {
+				todo_list: [],
+				new_todo: "",
+				add_todo_to_list() {
+					this.todo_list.push(this.new_todo);
+					this.new_todo = "";
+				}
 			}
 		}
-	}
 	</script>
 </body>
-
 </html>
